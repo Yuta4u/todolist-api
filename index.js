@@ -8,13 +8,12 @@ const app = express();
 
 dotenv.config();
 
-// Set up CORS to allow all origins
-app.use(cors());
-app.options("*", cors()); // Pre-flight requests for all routes
-
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.options("*", cors()); // Pre-flight requests for all routes
+
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
