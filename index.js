@@ -65,9 +65,10 @@ app.delete("/api/v1/todo/:id", (req, res) => {
   })
 })
 
-const port = 8080
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
 })
+
 module.exports = app
 module.exports.handler = serverless(app)
